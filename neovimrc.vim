@@ -166,7 +166,7 @@ let g:vimtex_compiler_latexmk = {
 map <leader>t :VimtexTocToggle<CR>
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': "$VIMWIKI", 'syntax': 'markdown', 'ext': '.md'}]
 
 " goyo
 nmap <leader>g :Goyo <CR>

@@ -2,7 +2,7 @@
 
 alias c="clear"
 alias rm='safe-rm'
-alias ls='ls -F --color=tty'
+alias ls='ls -Fh --color=tty'
 alias vi='nvim'
 alias r="R"
 
