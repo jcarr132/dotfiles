@@ -14,6 +14,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
+export PATH=$HOME/repos/gitlab/jcarr132/dotfiles/scripts:$PATH
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
