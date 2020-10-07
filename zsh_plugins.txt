@@ -1,0 +1,9 @@
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+agkozak/zsh-z
+hlissner/zsh-autopair
+peterhurford/up.zsh
+MichaelAquilina/zsh-auto-notify
+mafredri/zsh-async
+subnixr/minimal

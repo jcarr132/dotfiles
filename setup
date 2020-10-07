@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# neovim / vim
+ln -sf $PWD/neovimrc.vim $HOME/.config/nvim/init.vim
+ln -sf $PWD/neovimrc.vim $HOME/.vimrc
+ls -l $HOME/.config/nvim/init.vim
+ls -l $HOME/.vimrc
+
+
+# shell
+ln -sf $PWD/zshrc $HOME/.zshrc
+ls -l $HOME/.zshrc
+ln -sf $PWD/zsh_plugins.txt $HOME/.zsh_plugins.txt
+ls -l $HOME/.zsh_plugins.txt
+ln -sf $PWD/profile $HOME/.profile
+ls -l $HOME/.profile
+
+
+# aliases
+ln -sf $PWD/aliases $HOME/.sh_aliases
+ls -l $HOME/.sh_aliases
+
+# x init
+ln -sf $PWD/xinitrc $HOME/.xinitrc
+ls -l $HOME/.xinitrc
+
+# tmux
+ln -sf $PWD/tmux.conf $HOME/.tmux.conf
+ls -l $HOME/.tmux.conf
+
+# alacritty
+ln -sf $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+ls -l $HOME/.tmux.conf

@@ -1,0 +1,5 @@
+alias ex="chmod +x"
+alias r="R"
+alias rm='safe-rm'
+alias ls='ls -F --color=tty'
+alias vi='nvim'
