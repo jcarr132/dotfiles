@@ -1,5 +1,10 @@
-alias ex="chmod +x"
-alias r="R"
+#!/usr/bin/bash
+
+alias c="clear"
 alias rm='safe-rm'
 alias ls='ls -F --color=tty'
 alias vi='nvim'
+alias r="R"
+
+# directory shortcuts
+alias dots="cd $DOTFILES"
