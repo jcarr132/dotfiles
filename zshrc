@@ -13,6 +13,7 @@
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
+HISTCONTROL=ignoredups
 
 export PATH=$HOME/repos/gitlab/jcarr132/dotfiles/scripts:$PATH
 
@@ -92,7 +93,7 @@ _zlf_handler() {
 }
 zle -N _zlf_handler
 
-# import tings
+# import things
 source ~/.sh_aliases
 source ~/.profile
 
