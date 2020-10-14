@@ -9,39 +9,22 @@ endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'tpope/vim-surround'
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'jreybert/vimagit'
 Plug 'vimwiki/vimwiki'
-Plug 'justinmk/vim-sneak'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'jreybert/vimagit'
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'dense-analysis/ale'
-Plug 'sheerun/vim-polyglot'
-Plug 'ncm2/ncm2'
-Plug 'SirVer/ultisnips'
-Plug 'gaalcaras/ncm-R'
-Plug 'jalvesaq/Nvim-R'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
-Plug 'kovetskiy/sxhkd-vim'
 Plug 'lervag/vimtex'
 Plug 'Konfekt/FastFold'
 Plug 'ap/vim-css-color'
-Plug 'arcticicestudio/nord-vim'
 Plug 'Yggdroot/indentLine'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -63,17 +46,31 @@ set clipboard+=unnamedplus
 	set number relativenumber
 	set noswapfile
 	set nobackup
-	set expandtab                   " Use spaces instead of tabs.
-	set smarttab                    " Be smart using tabs ;)
-	set shiftwidth=2                " One tab == four spaces.
-	set tabstop=2                   " One tab == four spaces.
+	set expandtab        " Use spaces instead of tabs.
+	set smarttab         " Be smart using tabs ;)
+	set shiftwidth=2     " One tab == four spaces.
+	set tabstop=2        " One tab == four spaces.
 
-    " colorscheme nord
+" better splits
+	set splitbelow splitright
 
+" Shortcutting split navigation, saving a keypress:
+	map <C-h> <C-w>h
+	map <C-j> <C-w>j
+	map <C-k> <C-w>k
+	map <C-l> <C-w>l
+
+" Make adjusing split sizes a bit more friendly
+    noremap <silent> <C-Left> :vertical resize +3<CR>
+    noremap <silent> <C-Right> :vertical resize -3<CR>
+    noremap <silent> <C-Up> :resize +3<CR>
+    noremap <silent> <C-Down> :resize -3<CR>
+
+" Disables automatic commenting on newline:
+	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Enable autocompletion:
 	set wildmode=longest,list,full
-        autocmd BufEnter * call ncm2#enable_for_buffer()
 	set completeopt=noinsert,menuone,noselect
 
 " Toggle spellchecking
@@ -87,7 +84,6 @@ function! ToggleSpellCheck()
 endfunction
 nnoremap <silent> <Leader>S :call ToggleSpellCheck()<CR>
 
-
 " nerdtree config
 	let g:NERDTreeDirArrowExpandable = '►'
 	let g:NERDTreeDirArrowCollapsible = '▼'
@@ -99,7 +95,6 @@ nnoremap <silent> <Leader>S :call ToggleSpellCheck()<CR>
 
 " buffer management and fzf
 set hidden
-
 nnoremap <leader>j :bprev<CR>
 nnoremap <leader>k :bnext<CR>
 nnoremap <leader><leader> :b#<CR>
@@ -109,27 +104,9 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>F :GFiles<CR>
 nnoremap <leader>s :Snippets<CR>
 
-" Disables automatic commenting on newline:
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" better splits
-	set splitbelow splitright
-
 " indent line
 let g:indentLine_enabled = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
-" Shortcutting split navigation, saving a keypress:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
-
-" Make adjusing split sizes a bit more friendly
-    noremap <silent> <C-Left> :vertical resize +3<CR>
-    noremap <silent> <C-Right> :vertical resize -3<CR>
-    noremap <silent> <C-Up> :resize +3<CR>
-    noremap <silent> <C-Down> :resize -3<CR>
 
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
@@ -168,77 +145,76 @@ map <leader>t :VimtexTocToggle<CR>
 " vimwiki
 let g:vimwiki_list = [{'path': "$VIMWIKI", 'syntax': 'markdown', 'ext': '.md'}]
 
-" goyo
-nmap <leader>g :Goyo <CR>
-let g:limelight_conceal_ctermfg = 'DarkGray'
-let g:limelight_default_coefficient = 0.7
-let g:goyo_width = 90
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+" CoC
+set updatetime=300
+set shortmess+=c
 
+" use enter to confirm
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" linting
-let g:ale_linters = {
-        \'javascript': ['eslint'],
-        \'r': ['lintr'],
-    \}
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
-let g:ale_fixers = {
-    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \   'javascript': ['prettier', 'eslint'],
-    \   'r': ['styler'],
-    \}
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" NCM2
-augroup NCM2
-  autocmd!
-  " some other settings...
-  " uncomment this block if you use vimtex for LaTex
-  autocmd Filetype tex call ncm2#register_source({
-            \ 'name': 'vimtex',
-            \ 'priority': 8,
-            \ 'scope': ['tex'],
-            \ 'mark': 'tex',
-            \ 'word_pattern': '\w+',
-            \ 'complete_pattern': g:vimtex#re#ncm2,
-            \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-            \ })
-augroup END
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
-" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
-    " found' messages
-    set shortmess+=c
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-    " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-    inoremap <c-c> <ESC>
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-    " When the <Enter> key is pressed while the popup menu is visible, it only
-    " hides the menu. Use this mapping to close the menu and also start a new
-    " line.
-    " inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-    " Use <TAB> to select the popup menu:
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-au User Ncm2Plugin call ncm2#register_source({
-            \ 'name' : 'css',
-            \ 'priority': 9,
-            \ 'subscope_enable': 1,
-            \ 'scope': ['css','scss'],
-            \ 'mark': 'css',
-            \ 'word_pattern': '[\w\-]+',
-            \ 'complete_pattern': ':\s*',
-            \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-            \ })
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
 
-" Press enter key to trigger snippet expansion
-" The parameters are the same as `:help feedkeys()`
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" c-j c-k for moving in snippet
-let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)

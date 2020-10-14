@@ -30,4 +30,4 @@ ls -l $HOME/.tmux.conf
 
 # alacritty
 ln -sf $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
-ls -l $HOME/.tmux.conf
+ls -l $HOME/.config/alacritty/alacritty.yml
