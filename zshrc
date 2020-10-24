@@ -15,7 +15,7 @@ SAVEHIST=10000
 HISTFILE=~/.zsh_history
 HISTCONTROL=ignoredups
 
-export PATH=$HOME/repos/gitlab/jcarr132/dotfiles/scripts:$PATH
+export PATH=$DOTFILES/scripts:$HOME/go/bin:$PATH
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -60,7 +60,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &)
+(cat ~/.cache/wal/sequences &) &> /dev/null
 
 
 # use lf to pick files with Alt+k
