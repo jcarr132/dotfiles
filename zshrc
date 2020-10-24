@@ -16,6 +16,7 @@ HISTFILE=~/.zsh_history
 HISTCONTROL=ignoredups
 
 export PATH=$DOTFILES/scripts:$HOME/go/bin:$PATH
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 # Basic auto/tab complete:
 autoload -U compinit
