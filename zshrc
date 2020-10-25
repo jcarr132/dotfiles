@@ -15,7 +15,8 @@ SAVEHIST=10000
 HISTFILE=~/.zsh_history
 HISTCONTROL=ignoredups
 
-export PATH=$DOTFILES/scripts:$HOME/go/bin:$PATH
+export PATH=$DOTFILES/scripts:$PATH
+export PATH=$HOME/go/bin:/usr/local/go/bin:$PATH
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 # Basic auto/tab complete:
