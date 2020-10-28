@@ -145,6 +145,13 @@ map <leader>t :VimtexTocToggle<CR>
 " vimwiki
 let g:vimwiki_list = [{'path': "$VIMWIKI", 'syntax': 'markdown', 'ext': '.md'}]
 
+" vim-go
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_fmt_command = "goimports"
+
 " CoC
 set updatetime=300
 set shortmess+=c
