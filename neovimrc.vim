@@ -36,6 +36,7 @@ set clipboard+=unnamedplus
 
 " Some basics:
 	nnoremap c "_c
+  set conceallevel=0
 	set nocompatible
   set smartcase
   " set spell
