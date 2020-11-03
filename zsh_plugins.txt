@@ -7,3 +7,4 @@ peterhurford/up.zsh
 MichaelAquilina/zsh-auto-notify
 mafredri/zsh-async
 subnixr/minimal
+ohmyzsh/ohmyzsh path:plugins/git-auto-fetch
