@@ -5,6 +5,7 @@ alias rm='safe-rm'
 alias ls='ls -Fh --color=tty'
 alias vi='nvim'
 alias r="R"
+alias open="xdg-open"
 
 # directory shortcuts
 alias dots="cd $DOTFILES"
