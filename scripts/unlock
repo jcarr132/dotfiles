@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+dir=${1%.gpg}
+gpgtar -d $1
+
+mv ${dir}_1_/$dir $dir # move out of subfolder
+rm -r ${dir}_1_
+
+if [ $? -eq 0 ]; then
+  rm $1 # remove the encrypted directory
+  echo SUCCEEDED
+else
+  echo FAILED
+fi

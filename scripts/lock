@@ -1,0 +1,11 @@
+#!/usr/bin/sh
+
+# tar -cvzpf $1.tar.gz $1 | gpg -c > $1.tar.gz.gpg
+gpgtar -c -o $1.gpg $1
+
+if [ $? -eq 0 ]; then
+  echo SUCCEEDED
+  rm -r $1
+else
+  echo FAILED
+fi
