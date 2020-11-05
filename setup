@@ -31,3 +31,7 @@ ls -l $HOME/.tmux.conf
 # alacritty
 ln -sf $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ls -l $HOME/.config/alacritty/alacritty.yml
+
+# zathura
+ln -sf $PWD/zathurarc $HOME/.config/zathura/zathurarc
+ls -l $HOME/.config/zathura/zathurarc
