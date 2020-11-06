@@ -101,3 +101,6 @@ source ~/.profile
 # plugins
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
+
+# start tmux
+[[ $TERM != "screen" ]] && exec tmux
