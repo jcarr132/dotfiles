@@ -3,7 +3,7 @@ set continuous-hist-save true
 
 # zathurarc-dark
 
-set font "inconsolata 15"
+set font "inconsolata 12"
 set default-bg "#000000" #00
 set default-fg "#F7F7F6" #01
 
