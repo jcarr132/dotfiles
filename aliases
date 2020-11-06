@@ -1,11 +1,12 @@
 #!/usr/bin/bash
 
-alias c="clear"
+alias c='clear'
 alias rm='safe-rm'
 alias ls='ls -Fh --color=tty'
 alias vi='nvim'
-alias r="R"
-alias open="xdg-open"
+alias r='R'
+alias open='xdg-open'
+alias clip='xclip -selection "clipboard"'
 
 # directory shortcuts
-alias dots="cd $DOTFILES"
+alias dots='cd $DOTFILES'
