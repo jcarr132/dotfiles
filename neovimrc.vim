@@ -25,6 +25,7 @@ Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -33,6 +34,8 @@ set go=a
 set mouse=a
 set nohlsearch
 set clipboard+=unnamedplus
+
+colorscheme nord
 
 " Some basics:
 	nnoremap c "_c
