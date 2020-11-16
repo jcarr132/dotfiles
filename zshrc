@@ -109,7 +109,6 @@ zle -N _zlf_handler
 
 # import things
 source ~/.sh_aliases
-source ~/.profile
 
 # plugins
 source <(antibody init)
