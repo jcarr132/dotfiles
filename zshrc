@@ -43,6 +43,9 @@ _comp_options+=(globdots)		# Include hidden files.
 bindkey -v
 set -o vi
 export KEYTIMEOUT=1
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
