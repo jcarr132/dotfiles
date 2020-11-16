@@ -35,3 +35,7 @@ ls -l $HOME/.config/alacritty/alacritty.yml
 # zathura
 ln -sf $PWD/zathurarc $HOME/.config/zathura/zathurarc
 ls -l $HOME/.config/zathura/zathurarc
+
+# taskwarrior
+ln -sf $PWD/taskrc $HOME/.taskrc
+ls -l $HOME/.taskrc
