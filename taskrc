@@ -29,3 +29,8 @@ data.location=~/cloud/taskdb
 #include /usr/share/taskwarrior/solarized-light-256.theme
 #include /usr/share/taskwarrior/no-color.theme
 report.next.filter=project.not:books status:pending
+taskd.certificate=\/home\/jc\/.task\/freecinc_b430b6bf.cert.pem
+taskd.key=\/home\/jc\/.task\/freecinc_b430b6bf.key.pem
+taskd.ca=\/home\/jc\/.task\/freecinc_b430b6bf.ca.pem
+taskd.server=freecinc.com:53589
+taskd.credentials=FreeCinc\/freecinc_b430b6bf\/49878eb1-0553-4f27-99b2-e5b5200a6437

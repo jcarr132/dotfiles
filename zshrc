@@ -22,7 +22,7 @@ export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 export EDITOR=/usr/bin/nvim
 export BROWSER=firefox
 export DOTFILES=$HOME/dotfiles
-export VIMWIKI=$HOME/vimwiki
+export VIMWIKI=$HOME/cloud/vimwiki
 export GOPATH=$HOME/go
 export CLOUD=$HOME/cloud
 
