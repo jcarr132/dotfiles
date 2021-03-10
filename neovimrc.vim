@@ -111,6 +111,7 @@ nnoremap <leader>s :Snippets<CR>
 " indent line
 let g:indentLine_enabled = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_setConceal = 0
 
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
