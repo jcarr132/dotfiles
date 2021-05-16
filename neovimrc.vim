@@ -26,6 +26,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go'
 Plug 'arcticicestudio/nord-vim'
+Plug 'habamax/vim-godot'
 
 call plug#end()
 

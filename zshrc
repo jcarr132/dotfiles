@@ -18,11 +18,13 @@ HISTCONTROL=ignoredups
 export PATH=$DOTFILES/scripts:$PATH
 export PATH=$HOME/go/bin:/usr/local/go/bin:$PATH
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+export PATH=/home/jc/.local/bin:$PATH
 
 export EDITOR=/usr/bin/nvim
 export BROWSER=firefox
 export DOTFILES=$HOME/dotfiles
 export VIMWIKI=$HOME/cloud/vimwiki
+export VIM_CMD=/usr/bin/nvim-qt
 export GOPATH=$HOME/go
 export CLOUD=$HOME/cloud
 

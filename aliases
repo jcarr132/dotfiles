@@ -8,6 +8,9 @@ alias r='R'
 alias open='xdg-open'
 alias clip='xclip -selection "clipboard"'
 alias phone='scrcpy -Sw &'
+alias gvim='nvim-qt'
+
+alias godot='$HOME/Godot/Godot_v3.3-stable_mono_x11.64'
 
 # directory shortcuts
 alias dots='cd $DOTFILES'
