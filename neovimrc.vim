@@ -1,4 +1,5 @@
 let mapleader =","
+let localleader ="\\"
 
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -29,6 +30,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go'
 Plug 'arcticicestudio/nord-vim'
 Plug 'habamax/vim-godot'
+" Plug 'freitass/todo.txt-vim'
+Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 call plug#end()
 
 " set bg=light
