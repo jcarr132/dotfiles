@@ -1,18 +1,35 @@
 #!/usr/bin/bash
 
+# builtins
 alias c='clear'
 alias rm='safe-rm'
 alias ls='ls -Fh --color=tty'
+alias lsl='ls -Fhl --color=tty'
+alias lsa='ls -Fha --color=tty'
+alias lsla='ls -Fhal --color=tty'
+alias lsal='ls -Fhal --color=tty'
+alias ymd='date +%Y-%m-%d'
+alias hm='date +%H:%M'
+alias hms='date +%H:%M:%S'
+alias ymdhms='date "+%Y-%m-%d|%H:%M:%S"'
+
+# programs
 alias vi='nvim'
 alias r='R'
 alias rg='ranger'
 alias t='todo.sh -d $DOTFILES/scripts/todo.txt/todo.cfg'
+alias vitodo='vi $HOME/cloud/todo.txt/todo.txt'
 alias open='xdg-open'
 alias clip='xclip -selection "clipboard"'
 alias phone='scrcpy -Sw &'
 alias gvim='nvim-qt'
-
+alias python='python3'
 alias godot='$HOME/Godot/Godot_v3.3-stable_mono_x11.64'
+
+# shortcuts to edit common config files
+alias aliases='vi $DOTFILES/aliases'
+alias zshrc='vi $DOTFILES/zshrc'
+alias neovimrc='vi $DOTFILES/neovimrc.vim'
 
 # directory shortcuts
 alias dots='cd $DOTFILES'

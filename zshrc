@@ -18,6 +18,7 @@ HISTCONTROL=ignoredups
 export PATH=$DOTFILES/scripts:$PATH
 export PATH=$DOTFILES/scripts/todo.txt:$PATH
 export PATH=$HOME/go/bin:/usr/local/go/bin:$PATH
+export PATH=$HOME/.poetry/bin:$PATH
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 export PATH=/home/jc/.local/bin:$PATH
 
@@ -122,3 +123,5 @@ antibody bundle < ~/.zsh_plugins.txt
 
 # start tmux
 [[ $TERM != "screen" ]] && exec tmux
+
+export PATH="$HOME/.poetry/bin:$PATH"
