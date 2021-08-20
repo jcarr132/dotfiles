@@ -44,6 +44,7 @@ colorscheme nord
 
 " Some basics:
 	nnoremap c "_c
+  set textwidth=72
   set conceallevel=0
 	set nocompatible
   set smartcase
