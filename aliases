@@ -28,6 +28,11 @@ alias gvim='nvim-qt'
 alias python='python3'
 alias godot='$HOME/Godot/Godot_v3.3-stable_mono_x11.64'
 
+alias gs='git status'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gp='git push'
+
 # shortcuts to edit common config files
 alias aliases='vi $DOTFILES/aliases'
 alias zshrc='vi $DOTFILES/zshrc'
