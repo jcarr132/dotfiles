@@ -11,6 +11,7 @@ endif
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
@@ -95,13 +96,13 @@ endfunction
 nnoremap <silent> <Leader>S :call ToggleSpellCheck()<CR>
 
 " nerdtree config
-	let g:NERDTreeDirArrowExpandable = '►'
-	let g:NERDTreeDirArrowCollapsible = '▼'
-	let NERDTreeShowLineNumbers=1
-	let NERDTreeShowHidden=1
-	let NERDTreeMinimalUI = 1
-	let g:NERDTreeWinSize=38
-    map <leader>n :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '►'
+let g:NERDTreeDirArrowCollapsible = '▼'
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=38
+map <leader>n :NERDTreeToggle<CR>
 
 " buffer management and fzf
 set hidden
@@ -114,6 +115,10 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>F :GFiles<CR>
 nnoremap <leader>s :Snippets<CR>
 
+" goyo settings
+nnoremap <leader>g :Goyo<CR>
+let g:goyo_width = 80
+let g:goyo_height = "85%"
 
 " folding
 set foldmethod=indent
