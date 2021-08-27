@@ -41,3 +41,4 @@ alias neovimrc='vi $DOTFILES/neovimrc.vim'
 
 # directory shortcuts
 alias dots='cd $DOTFILES'
+alias repos='cd $HOME/repos'
