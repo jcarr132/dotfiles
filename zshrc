@@ -1,14 +1,3 @@
-#    _                  _
-#   (_) ) ___   _______| |__
-#   | |  / __| |_  / __| '_ \
-#   | |  \__ \  / /\__ \ | | |
-#  _/ |  |___/ /___|___/_| |_|
-# |__/____  _ __  / _(_) __ _
-# / __/ _ \| '_ \| |_| |/ _` |
-#| (_| (_) | | | |  _| | (_| |
-# \___\___/|_| |_|_| |_|\__, |
-#                       |___/
-
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -79,47 +68,24 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &) &> /dev/null
-
-# use lf to pick files with Alt+k
-_zlf() {
-    emulate -L zsh
-    local d=$(mktemp -d) || return 1
-    {
-        mkfifo -m 600 $d/fifo || return 1
-        tmux split -bf zsh -c "exec {ZLE_FIFO}>$d/fifo; export ZLE_FIFO; exec lf" || return 1
-        local fd
-        exec {fd}<$d/fifo
-        zle -Fw $fd _zlf_handler
-    } always {
-        rm -rf $d
-    }
-}
-zle -N _zlf
-bindkey '\ek' _zlf
-
-_zlf_handler() {
-    emulate -L zsh
-    local line
-    if ! read -r line <&$1; then
-        zle -F $1
-        exec {1}<&-
-        return 1
-    fi
-    eval $line
-    zle -R
-}
-zle -N _zlf_handler
-
 # import things
 source ~/.sh_aliases
 
 # plugins
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins.txt
+source ~/antigen.zsh
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle agkozak/zsh-z
+antigen bundle hlissner/zsh-autopair
+antigen bundle peterhurford/up.zsh
+antigen bundle mafredri/zsh-async
+antigen bundle subnixr/minimal
+antigen bundle ohmyzsh/ohmyzsh path:plugins/git-auto-fetch
+
+antigen theme nord
+antigen apply
 
 # start tmux
 [[ $TERM != "screen" ]] && exec tmux
