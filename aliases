@@ -3,11 +3,11 @@
 # builtins
 alias c='clear'
 alias rm='safe-rm'
-alias ls='ls -Fh --color=tty'
-alias lsl='ls -Fhl --color=tty'
-alias lsa='ls -Fha --color=tty'
-alias lsla='ls -Fhal --color=tty'
-alias lsal='ls -Fhal --color=tty'
+alias ls='ls -Fh --color=auto'
+alias lsl='ls -Fhl --color=auto'
+alias lsa='ls -Fha --color=auto'
+alias lsla='ls -Fhal --color=auto'
+alias lsal='ls -Fhal --color=auto'
 alias ymd='date +%Y-%m-%d'
 alias hm='date +%H:%M'
 alias hms='date +%H:%M:%S'
@@ -42,3 +42,6 @@ alias neovimrc='vi $DOTFILES/neovimrc.vim'
 # directory shortcuts
 alias dots='cd $DOTFILES'
 alias repos='cd $HOME/repos'
+
+alias winhome='cd /mnt/c/Users/JC'
+alias winc='cd /mnt/c'
